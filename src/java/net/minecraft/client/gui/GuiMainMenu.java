@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import dev.sky.ui.font.FontManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -500,8 +501,8 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 
            this.drawString(this.fontRendererObj, s, 2, this.height - 10, -1);
 
-        String s2 = "Copyright Mojang AB. Do not distribute!";
-        this.drawString(this.fontRendererObj, s2, this.width - this.fontRendererObj.getStringWidth(s2) - 2, this.height - 10, -1);
+        String s2 = "Love LangYa466";
+        this.drawString(this.fontRendererObj, s2, this.width - this.fontRendererObj.getStringWidth(s2) - 10, this.height - 10, -1);
 
         if (this.openGLWarning1 != null && this.openGLWarning1.length() > 0)
         {
@@ -521,6 +522,8 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         {
             this.modUpdateNotification.drawScreen(mouseX, mouseY, partialTicks);
         }
+
+        FontManager.pingfang50.drawCenteredStringWithShadow("SkyClient", (width / 2.0 - FontManager.pingfang50.getStringWidth("SkyClient") / 10.0),height / 3.5, -1);
 
     }
 

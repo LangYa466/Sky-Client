@@ -18,11 +18,8 @@ public class Sprint extends Module {
         addSettings();
     }
 
-    BoolValue testValue = new BoolValue("Test",false);
-
     @EventTarget
     void onU(EventUpdatePlayer e) {
         mc.gameSettings.keyBindSprint.setPressed(true);
-        mc.rightClickDelayTimer = 0;
     }
 }

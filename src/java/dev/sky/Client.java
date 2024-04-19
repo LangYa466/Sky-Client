@@ -6,6 +6,8 @@ import dev.sky.elements.ElementManager;
 import dev.sky.manager.TargetManager;
 import dev.sky.module.ModuleManager;
 import dev.sky.ui.font.FontManager;
+import dev.sky.ui.screen.GuiSelectMode;
+import dev.sky.utils.IMinecraft;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.viamcp.ViaMCP;
@@ -13,7 +15,7 @@ import net.minecraft.viamcp.ViaMCP;
 @SuppressWarnings("ALL")
 @Getter
 @Setter
-public class Client {
+public class Client extends IMinecraft {
 
     public static final Client INSTANCE = new Client();
 
@@ -35,6 +37,7 @@ public class Client {
         ViaMCP.getInstance().start();
         ViaMCP.getInstance().initAsyncSlider();
         FontManager.initFonts();
+        // mc.displayGuiScreen(new GuiSelectMode());
     }
 
     public void stopClient() { }

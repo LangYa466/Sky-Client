@@ -39,6 +39,7 @@ public class KeyButton {
 
     public void draw() {
 
+
         if(Keyboard.getEventKey() == keyCode) RoundedUtil.drawRound(x,y,width,height,radius,new Color(0,0,0,160));
         else RoundedUtil.drawRound(x,y,width,height,radius,new Color(0,0,0,80));
 

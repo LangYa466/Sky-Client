@@ -4,7 +4,7 @@ package dev.sky.commands.impls;
 import dev.sky.Client;
 import dev.sky.commands.Command;
 import dev.sky.module.Module;
-import dev.sky.utils.player.ChatUtil;
+import dev.sky.utils.impls.player.ChatUtil;
 
 /**
  * @author LangYa466

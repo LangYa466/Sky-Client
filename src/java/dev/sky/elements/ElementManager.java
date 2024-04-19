@@ -3,6 +3,7 @@ package dev.sky.elements;
 import com.cubk.event.annotations.EventTarget;
 import dev.sky.Client;
 import dev.sky.elements.impls.*;
+import dev.sky.elements.impls.keystore.KeyStore;
 import dev.sky.events.impls.render.EventRender2D;
 import lombok.Getter;
 
@@ -26,6 +27,8 @@ public class ElementManager {
 
     void registers() {
         elements.add(new Info());
+        elements.add(new TargetHUD());
+        elements.add(new KeyStore());
     }
 
     @EventTarget

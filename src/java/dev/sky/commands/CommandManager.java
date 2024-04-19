@@ -4,7 +4,7 @@ package dev.sky.commands;
 import dev.sky.Client;
 import dev.sky.commands.impls.BindCommand;
 import dev.sky.commands.impls.ToggleCommand;
-import dev.sky.utils.player.ChatUtil;
+import dev.sky.utils.impls.player.ChatUtil;
 import lombok.Getter;
 import lombok.Setter;
 

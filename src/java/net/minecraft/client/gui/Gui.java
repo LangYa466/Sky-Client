@@ -1,7 +1,7 @@
 package net.minecraft.client.gui;
 
-import dev.sky.utils.render.GLUtil;
-import dev.sky.utils.render.RenderUtil;
+import dev.sky.utils.impls.render.GLUtil;
+import dev.sky.utils.impls.render.RenderUtil;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
@@ -230,4 +230,18 @@ public class Gui
         worldrenderer.pos((double)x, (double)y, 0.0D).tex((double)(u * f), (double)(v * f1)).endVertex();
         tessellator.draw();
     }
+
+    public static void drawScaledCustomSizeModalRect(float x, float y, float u, float v, int uWidth, int vHeight, float width, float height, float tileWidth, float tileHeight) {
+        float f = 1.0f / tileWidth;
+        float f2 = 1.0f / tileHeight;
+        Tessellator tessellator = Tessellator.getInstance();
+        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
+        worldrenderer.pos(x, y + height, 0.0).tex(u * f, (v + vHeight) * f2).endVertex();
+        worldrenderer.pos(x + width, y + height, 0.0).tex((u + uWidth) * f, (v + vHeight) * f2).endVertex();
+        worldrenderer.pos(x + width, y, 0.0).tex((u + uWidth) * f, v * f2).endVertex();
+        worldrenderer.pos(x, y, 0.0).tex(u * f, v * f2).endVertex();
+        tessellator.draw();
+    }
+
 }

@@ -2,7 +2,7 @@ package net.minecraft.client.entity;
 
 import dev.sky.Client;
 import dev.sky.events.impls.player.EventUpdatePlayer;
-import dev.sky.utils.player.RotationUtil;
+import dev.sky.utils.impls.player.RotationUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;

@@ -5,6 +5,7 @@ import dev.sky.events.impls.player.EventUpdatePlayer;
 import dev.sky.module.Category;
 import dev.sky.module.Module;
 import dev.sky.module.values.BoolValue;
+import net.minecraft.client.Minecraft;
 
 /**
  * @author LangYa466
@@ -22,5 +23,6 @@ public class Sprint extends Module {
     @EventTarget
     void onU(EventUpdatePlayer e) {
         mc.gameSettings.keyBindSprint.setPressed(true);
+        mc.rightClickDelayTimer = 0;
     }
 }

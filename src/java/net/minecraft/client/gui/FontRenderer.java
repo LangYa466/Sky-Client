@@ -665,6 +665,7 @@ public class FontRenderer implements IResourceManagerReloadListener
 
     private float getCharWidthFloat(char p_getCharWidthFloat_1_)
     {
+        if(true) return FontManager.pingfang14.getCharWidth(p_getCharWidthFloat_1_);
         if (p_getCharWidthFloat_1_ == 167)
         {
             return -1.0F;
@@ -709,6 +710,7 @@ public class FontRenderer implements IResourceManagerReloadListener
 
     public String trimStringToWidth(String text, int width, boolean reverse)
     {
+        if(true) return FontManager.pingfang14.trimStringToWidth(text,width,reverse);
         StringBuilder stringbuilder = new StringBuilder();
         float f = 0.0F;
         int i = reverse ? text.length() - 1 : 0;

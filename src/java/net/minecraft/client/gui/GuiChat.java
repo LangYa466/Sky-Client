@@ -6,7 +6,7 @@ import java.util.List;
 
 import dev.sky.Client;
 import dev.sky.elements.Element;
-import dev.sky.utils.misc.MouseUtil;
+import dev.sky.utils.impls.misc.MouseUtil;
 import net.minecraft.network.play.client.C14PacketTabComplete;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -14,14 +14,11 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 public class GuiChat extends GuiScreen
 {
-    private static final Logger logger = LogManager.getLogger();
     private String historyBuffer = "";
     private int sentHistoryCursor = -1;
     private boolean playerNamesFound;
@@ -154,14 +151,14 @@ public class GuiChat extends GuiScreen
         }
     }
 
-    protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException
-    {
-        if (mouseButton == 0)
-        {
-            for (Element element : Client.INSTANCE.getElementManager().getElements()) {
-                if(MouseUtil.isHovering(element.getX(), element.getY(), element.getWidth(), element.getHeight(), mouseX, mouseY)){
-                    element.setDragging(true);
-                    this.element = element;
+    protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+
+        for (Element element : Client.INSTANCE.getElementManager().getElements()) {
+            if (MouseUtil.isHovering(element.getX(), element.getY(), element.getWidth(), element.getHeight(), mouseX, mouseY)) {
+                element.setDragging(true);
+                this.element = element;
+
+                if (mouseButton == 0) {
                     element.setMoveX(mouseX - element.getX());
                     element.setMoveY(mouseY - element.getY());
                 } else {
@@ -169,10 +166,10 @@ public class GuiChat extends GuiScreen
                     this.element = null;
                 }
             }
+
             IChatComponent ichatcomponent = this.mc.ingameGUI.getChatGUI().getChatComponent(Mouse.getX(), Mouse.getY());
 
-            if (this.handleComponentClick(ichatcomponent))
-            {
+            if (this.handleComponentClick(ichatcomponent)) {
                 return;
             }
         }

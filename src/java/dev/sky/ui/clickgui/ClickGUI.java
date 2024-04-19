@@ -93,7 +93,7 @@ public class ClickGUI extends GuiScreen {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         Runnable runnable = () -> {
-            if (ImGui.begin("langya.ink", ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse)) {
+            if (ImGui.begin("langya.ink", ImGuiWindowFlags.MenuBar | ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize)) {
                 ImGui.styleColorsLight();
                 if (ImGui.beginTabBar("Modules")) {
                     for (Category type : Category.values()) {

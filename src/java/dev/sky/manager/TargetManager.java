@@ -4,6 +4,7 @@ import com.cubk.event.annotations.EventTarget;
 import dev.sky.Client;
 import dev.sky.events.impls.player.EventAttack;
 import dev.sky.events.impls.player.EventUpdatePlayer;
+import dev.sky.utils.IMinecraft;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.entity.Entity;
@@ -15,7 +16,7 @@ import net.minecraft.entity.Entity;
 
 @Getter
 @Setter
-public class TargetManager {
+public class TargetManager extends IMinecraft {
     public static final TargetManager INSTANCE = new TargetManager();
 
     Entity target;
@@ -25,13 +26,7 @@ public class TargetManager {
     }
 
     @EventTarget
-    void onA(EventAttack e) {
-        target = e.getEntity();
-    }
-
-    @EventTarget
     void onU(EventUpdatePlayer e) {
-        if (target == null) return;
-        if(target.isDead) target = null;
+
     }
 }

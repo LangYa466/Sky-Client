@@ -1,8 +1,8 @@
 package dev.sky.ui.font;
 
-import dev.sky.utils.render.ColorUtil;
-import dev.sky.utils.render.GLUtils;
-import dev.sky.utils.render.RenderUtil;
+import dev.sky.utils.impls.render.ColorUtil;
+import dev.sky.utils.impls.render.GLUtils;
+import dev.sky.utils.impls.render.RenderUtil;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;

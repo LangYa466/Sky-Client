@@ -15,7 +15,7 @@ import java.awt.*;
 public class Info extends Element {
 
     public Info() {
-        super(50, 50);
+        super("游戏信息显示",50, 50);
         this.setState(true);
     }
 

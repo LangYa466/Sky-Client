@@ -25,7 +25,7 @@ public class Profiler
     private static final int HASH_TICK = "tick".hashCode();
     private static final int HASH_PRE_RENDER_ERRORS = "preRenderErrors".hashCode();
     private static final int HASH_RENDER = "render".hashCode();
-    private static final int HASH_DISPLAY = "display".hashCode();
+    private static final int HASH_DISPLAY = "render".hashCode();
 
     public Profiler()
     {
@@ -69,7 +69,7 @@ public class Profiler
             {
                 GlStateManager.clearEnabled = false;
             }
-            else if (j == HASH_DISPLAY && name.equals("display"))
+            else if (j == HASH_DISPLAY && name.equals("render"))
             {
                 GlStateManager.clearEnabled = true;
             }

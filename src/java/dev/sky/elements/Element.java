@@ -15,11 +15,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Element extends IMinecraft {
+    String name;
     float mouseX, mouseY;
     float x, y, moveX, moveY, width, height;
     boolean state, dragging;
 
-    public Element(float x, float y) {
+    public Element(String name,float x, float y) {
+        this.name = name;
         this.x = x;
         this.y = y;
     }
@@ -41,8 +43,6 @@ public class Element extends IMinecraft {
         if (dragging) {
             this.mouseX = mouseX;
             this.mouseY = mouseY;
-            RenderUtil.drawBorder(x - 4,y - 4,width + 8,height + 8,1,-1);
-            FontManager.pingfang15.drawCenteredStringWithShadow(String.format("PosX: %s PosY: %s",x,y,mouseX,mouseY,width,height),x,y - 12,-1);
         }
     }
 }

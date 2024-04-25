@@ -2121,7 +2121,7 @@ public abstract class Entity implements ICommandSender
 
     public void addEntityCrashInfo(CrashReportCategory category)
     {
-        category.addCrashSectionCallable("Entity Type", new Callable<String>()
+        category.addCrashSectionCallable("Entity NotifType", new Callable<String>()
         {
             public String call() throws Exception
             {

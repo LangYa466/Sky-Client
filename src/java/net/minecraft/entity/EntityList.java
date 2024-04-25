@@ -145,8 +145,8 @@ public class EntityList
 
         if ("Minecart".equals(nbt.getString("id")))
         {
-            nbt.setString("id", EntityMinecart.EnumMinecartType.byNetworkID(nbt.getInteger("Type")).getName());
-            nbt.removeTag("Type");
+            nbt.setString("id", EntityMinecart.EnumMinecartType.byNetworkID(nbt.getInteger("NotifType")).getName());
+            nbt.removeTag("NotifType");
         }
 
         try

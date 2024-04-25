@@ -69,7 +69,7 @@ public class Display {
 
     /**
      * Create the OpenGL context with the given minimum parameters. If isFullscreen() is true or if windowed context are
-     * not supported on the platform, the display mode will be switched to the mode returned by getDisplayMode(), and a
+     * not supported on the platform, the render mode will be switched to the mode returned by getDisplayMode(), and a
      * fullscreen context will be created. If isFullscreen() is false, a windowed context will be created with the
      * dimensions given in the mode returned by getDisplayMode(). If a context can't be created with the given
      * parameters, a LWJGLException will be thrown.

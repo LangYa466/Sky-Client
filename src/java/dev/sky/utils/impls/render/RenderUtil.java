@@ -56,7 +56,6 @@ public class RenderUtil extends Utils {
         GLUtil.endBlend();
     }
 
-
     public static void drawBigHead(float x, float y, float width, float height, AbstractClientPlayer player) {
         double offset = -(player.hurtTime * 23);
         color(new Color(255, (int)(255.0 + offset), (int)(255.0 + offset)).getRGB());

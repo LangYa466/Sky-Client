@@ -17,7 +17,7 @@ package org.lwjgl.opengl;
 
 /**
  *
- * This class encapsulates the properties for a given display mode. This class is not instantiable, and is aquired from
+ * This class encapsulates the properties for a given render mode. This class is not instantiable, and is aquired from
  * the <code>Display.
  * getAvailableDisplayModes()</code> method.
  *
@@ -26,13 +26,13 @@ package org.lwjgl.opengl;
  */
 public final class DisplayMode {
 
-    /** properties of the display mode */
+    /** properties of the render mode */
     private final int width, height, bpp, freq;
     /** If true, this instance can be used for fullscreen modes */
     private final boolean fullscreen;
 
     /**
-     * Construct a display mode. DisplayModes constructed through the public constructor can only be used to specify the
+     * Construct a render mode. DisplayModes constructed through the public constructor can only be used to specify the
      * dimensions of the Display in windowed mode. To get the available DisplayModes for fullscreen modes, use
      * Display.getAvailableDisplayModes().
      *

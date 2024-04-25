@@ -470,9 +470,9 @@ public final class ItemStack
     {
         String s = this.getItem().getItemStackDisplayName(this);
 
-        if (this.stackTagCompound != null && this.stackTagCompound.hasKey("display", 10))
+        if (this.stackTagCompound != null && this.stackTagCompound.hasKey("render", 10))
         {
-            NBTTagCompound nbttagcompound = this.stackTagCompound.getCompoundTag("display");
+            NBTTagCompound nbttagcompound = this.stackTagCompound.getCompoundTag("render");
 
             if (nbttagcompound.hasKey("Name", 8))
             {
@@ -490,12 +490,12 @@ public final class ItemStack
             this.stackTagCompound = new NBTTagCompound();
         }
 
-        if (!this.stackTagCompound.hasKey("display", 10))
+        if (!this.stackTagCompound.hasKey("render", 10))
         {
-            this.stackTagCompound.setTag("display", new NBTTagCompound());
+            this.stackTagCompound.setTag("render", new NBTTagCompound());
         }
 
-        this.stackTagCompound.getCompoundTag("display").setString("Name", displayName);
+        this.stackTagCompound.getCompoundTag("render").setString("Name", displayName);
         return this;
     }
 
@@ -503,14 +503,14 @@ public final class ItemStack
     {
         if (this.stackTagCompound != null)
         {
-            if (this.stackTagCompound.hasKey("display", 10))
+            if (this.stackTagCompound.hasKey("render", 10))
             {
-                NBTTagCompound nbttagcompound = this.stackTagCompound.getCompoundTag("display");
+                NBTTagCompound nbttagcompound = this.stackTagCompound.getCompoundTag("render");
                 nbttagcompound.removeTag("Name");
 
                 if (nbttagcompound.hasNoTags())
                 {
-                    this.stackTagCompound.removeTag("display");
+                    this.stackTagCompound.removeTag("render");
 
                     if (this.stackTagCompound.hasNoTags())
                     {
@@ -523,7 +523,7 @@ public final class ItemStack
 
     public boolean hasDisplayName()
     {
-        return this.stackTagCompound == null ? false : (!this.stackTagCompound.hasKey("display", 10) ? false : this.stackTagCompound.getCompoundTag("display").hasKey("Name", 8));
+        return this.stackTagCompound == null ? false : (!this.stackTagCompound.hasKey("render", 10) ? false : this.stackTagCompound.getCompoundTag("render").hasKey("Name", 8));
     }
 
     public List<String> getTooltip(EntityPlayer playerIn, boolean advanced)
@@ -598,9 +598,9 @@ public final class ItemStack
                 }
             }
 
-            if (this.stackTagCompound.hasKey("display", 10))
+            if (this.stackTagCompound.hasKey("render", 10))
             {
-                NBTTagCompound nbttagcompound = this.stackTagCompound.getCompoundTag("display");
+                NBTTagCompound nbttagcompound = this.stackTagCompound.getCompoundTag("render");
 
                 if (nbttagcompound.hasKey("color", 3))
                 {

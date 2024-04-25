@@ -3,9 +3,10 @@ package dev.sky.module;
 import com.cubk.event.annotations.EventTarget;
 import dev.sky.Client;
 import dev.sky.events.impls.misc.EventKey;
-import dev.sky.module.impls.display.ClickGui;
-import dev.sky.module.impls.display.HUDMod;
+import dev.sky.module.impls.render.ClickGui;
+import dev.sky.module.impls.render.HUDMod;
 import dev.sky.module.impls.player.Sprint;
+import dev.sky.module.impls.render.WorldTimeChanger;
 import lombok.Getter;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class ModuleManager  {
         modules.add(new ClickGui());
         modules.add(new HUDMod());
         modules.add(new Sprint());
+        modules.add(new WorldTimeChanger());
     }
 
     public Module getModule(String name) {

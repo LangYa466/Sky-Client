@@ -5,6 +5,7 @@ import dev.sky.Client;
 import dev.sky.elements.impls.*;
 import dev.sky.elements.impls.keystore.KeyStore;
 import dev.sky.events.impls.render.EventRender2D;
+import dev.sky.module.Module;
 import lombok.Getter;
 
 import java.util.List;
@@ -25,10 +26,17 @@ public class ElementManager {
         this.registers();
     }
 
+    public Element getElement(String name) {
+        for (Element element : elements) if(element.getName().equalsIgnoreCase(name)) return element;
+        return null;
+    }
+
     void registers() {
         elements.add(new Info());
         elements.add(new TargetHUD());
         elements.add(new KeyStore());
+        elements.add(new ComboInfo());
+        elements.add(new PotionInfo());
     }
 
     @EventTarget

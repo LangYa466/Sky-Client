@@ -13,29 +13,23 @@ import dev.sky.utils.impls.player.ChatUtil;
 
 public class ToggleCommand implements Command {
 
-
     @Override
     public boolean run(String[] args) {
+        if (args[1].isEmpty()) return false;
         Module module = Client.INSTANCE.getModuleManager().getModule(args[1]);
         if (module == null) {
-            ChatUtil.print("No module found");
+            ChatUtil.print("没有这个模块");
             return false;
         }
-        if (module.isState()){
-            module.toggle();
-            ChatUtil.print("&cDisabler &7" + module.getName() + "&7");
-        }else{
-            module.toggle();
-            ChatUtil.print("&aEnable &7" + module.getName() + "&7");
-        }
 
-
+        module.toggle();
+        ChatUtil.print(module.isState() ? "§a已开启 §7" : "§c已关闭 §7" + module.getName() + "§7");
 
         return true;
     }
 
     @Override
     public String usage() {
-        return ".t <Module>";
+        return ".t <模块名称>";
     }
 }

@@ -3,6 +3,7 @@ package dev.sky;
 import com.cubk.event.EventManager;
 import dev.sky.commands.CommandManager;
 import dev.sky.elements.ElementManager;
+import dev.sky.elements.impls.notification.NotificationManager;
 import dev.sky.manager.TargetManager;
 import dev.sky.module.ModuleManager;
 import dev.sky.ui.font.FontManager;
@@ -20,20 +21,22 @@ public class Client extends IMinecraft {
     public static final Client INSTANCE = new Client();
 
     public static final String NAME = "SkyClient";
-    public static final String VERSION = "0.0.1";
+    public static final String VERSION = "0.0.2";
 
-    ModuleManager moduleManager;
-    CommandManager commandManager;
     EventManager eventManager;
     ElementManager elementManager;
+    ModuleManager moduleManager;
+    CommandManager commandManager;
     TargetManager targetManager;
+    NotificationManager notificationManager;
 
     public void startClient() {
         eventManager = new EventManager();
+        elementManager = new ElementManager();
         moduleManager = new ModuleManager();
         commandManager = new CommandManager();
-        elementManager = new ElementManager();
         targetManager = new TargetManager();
+        notificationManager = new NotificationManager();
         ViaMCP.getInstance().start();
         ViaMCP.getInstance().initAsyncSlider();
         FontManager.initFonts();

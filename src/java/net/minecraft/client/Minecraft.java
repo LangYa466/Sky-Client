@@ -915,7 +915,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         GlStateManager.pushMatrix();
         GlStateManager.clear(16640);
         this.framebufferMc.bindFramebuffer(true);
-        this.mcProfiler.startSection("display");
+        this.mcProfiler.startSection("render");
         GlStateManager.enableTexture2D();
 
         if (this.thePlayer != null && this.thePlayer.isEntityInsideOpaqueBlock())
@@ -2364,7 +2364,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             NBTTagList nbttaglist = new NBTTagList();
             nbttaglist.appendTag(new NBTTagString("(+NBT)"));
             nbttagcompound1.setTag("Lore", nbttaglist);
-            itemstack.setTagInfo("display", nbttagcompound1);
+            itemstack.setTagInfo("render", nbttagcompound1);
             return itemstack;
         }
     }
@@ -2414,7 +2414,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 return !s.equals("vanilla") ? "Definitely; SkyClient brand changed to \'" + s + "\'" : (Minecraft.class.getSigners() == null ? "Very likely; Jar signature invalidated" : "Probably not. Jar signature remains and client brand is untouched.");
             }
         });
-        theCrash.getCategory().addCrashSectionCallable("Type", new Callable<String>()
+        theCrash.getCategory().addCrashSectionCallable("NotifType", new Callable<String>()
         {
             public String call() throws Exception
             {

@@ -49,7 +49,7 @@ public enum EnumChatFormatting
     private final boolean fancyStyling;
 
     /**
-     * The control string (section sign + formatting code) that can be inserted into client-side text to display
+     * The control string (section sign + formatting code) that can be inserted into client-side text to render
      * subsequent text in this format.
      */
     private final String controlString;

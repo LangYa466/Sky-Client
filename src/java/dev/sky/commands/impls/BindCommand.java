@@ -25,7 +25,7 @@ public class BindCommand implements Command {
         }
 
         module.setKeyCode(Keyboard.getKeyIndex(args[2].toUpperCase()));
-        ChatUtil.print( "&f" + module.getName()+ "&7" + " Set keybind for to &f" + args[2] + "&7");
+        ChatUtil.print( "§f" + module.getName()+ "§7" + " Set keybind for to §f" + args[2] + "§7");
 
         return true;
     }

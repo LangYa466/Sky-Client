@@ -3,10 +3,8 @@ package dev.sky.elements.impls.keystore;
 import com.cubk.event.annotations.EventTarget;
 import dev.sky.Client;
 import dev.sky.events.impls.misc.EventKey;
-import dev.sky.events.impls.misc.EventTick;
 import dev.sky.ui.font.FontManager;
 import dev.sky.utils.impls.render.RoundedUtil;
-import net.minecraft.client.Minecraft;
 import org.lwjgl.input.Keyboard;
 
 import java.awt.*;
@@ -20,6 +18,7 @@ public class KeyButton {
 
     float x,y,width,height,radius;
     int keyCode;
+    boolean use;
 
     public KeyButton(float x, float y, float width, float height, float radius, int keyCode) {
         this.x = x;
@@ -34,13 +33,13 @@ public class KeyButton {
 
     @EventTarget
     void onK(EventKey e) {
-        keyCode = e.getKeyCode();
+        use = (keyCode == e.getKeyCode());
     }
 
     public void draw() {
 
 
-        if(Keyboard.getEventKey() == keyCode) RoundedUtil.drawRound(x,y,width,height,radius,new Color(0,0,0,160));
+        if(use) RoundedUtil.drawRound(x,y,width,height,radius,new Color(0,0,0,160));
         else RoundedUtil.drawRound(x,y,width,height,radius,new Color(0,0,0,80));
 
         FontManager.pingfang15.drawStringWithShadow(Keyboard.getKeyName(keyCode),x + 12,y + 10,-1);

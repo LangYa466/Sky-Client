@@ -37,7 +37,7 @@ interface DisplayImplementation extends InputImplementation {
     void switchDisplayMode(DisplayMode mode) throws LWJGLException;
 
     /**
-     * Reset the display mode to whatever it was when LWJGL was initialized. Fails silently.
+     * Reset the render mode to whatever it was when LWJGL was initialized. Fails silently.
      */
     void resetDisplayMode();
 
@@ -70,7 +70,7 @@ interface DisplayImplementation extends InputImplementation {
     String getVersion();
 
     /**
-     * Initialize and return the current display mode.
+     * Initialize and return the current render mode.
      */
     DisplayMode init() throws LWJGLException;
 

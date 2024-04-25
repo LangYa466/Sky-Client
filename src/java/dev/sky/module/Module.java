@@ -2,6 +2,7 @@ package dev.sky.module;
 
 
 import dev.sky.Client;
+import dev.sky.elements.impls.notification.NotifyType;
 import dev.sky.module.values.AbstractValue;
 import dev.sky.utils.IMinecraft;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Getter
 @Setter
 public class Module extends IMinecraft {
-    CopyOnWriteArrayList<AbstractValue> values = new CopyOnWriteArrayList<>();
+    public CopyOnWriteArrayList<AbstractValue> values = new CopyOnWriteArrayList<>();
     String name, description;
     Category category;
     int keyCode;
@@ -45,7 +46,7 @@ public class Module extends IMinecraft {
         this.keyCode = keyCode;
     }
 
-    protected void addSettings() {
+    protected void addValues() {
         Field[] fields = getClass().getDeclaredFields();
 
         for (Field field : fields) {
@@ -65,6 +66,7 @@ public class Module extends IMinecraft {
     public void toggle() {
         state = !state;
         if(state) onEnable(); else onDisable();
+        Client.INSTANCE.getNotificationManager().addNotification(state ? "已开启" : "已关闭" + name, state ? NotifyType.SUCCESS : NotifyType.ERROR);
     }
 
     public void onEnable() {

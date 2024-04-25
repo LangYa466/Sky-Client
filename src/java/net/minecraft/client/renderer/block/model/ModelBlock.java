@@ -236,9 +236,9 @@ public class ModelBlock
                 boolean flag2 = this.getAmbientOcclusionEnabled(jsonobject);
                 ItemCameraTransforms itemcameratransforms = ItemCameraTransforms.DEFAULT;
 
-                if (jsonobject.has("display"))
+                if (jsonobject.has("render"))
                 {
-                    JsonObject jsonobject1 = JsonUtils.getJsonObject(jsonobject, "display");
+                    JsonObject jsonobject1 = JsonUtils.getJsonObject(jsonobject, "render");
                     itemcameratransforms = (ItemCameraTransforms)p_deserialize_3_.deserialize(jsonobject1, ItemCameraTransforms.class);
                 }
 

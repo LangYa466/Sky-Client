@@ -103,7 +103,7 @@ public class ItemArmor extends Item
 
     public boolean hasColor(ItemStack stack)
     {
-        return this.material != ItemArmor.ArmorMaterial.LEATHER ? false : (!stack.hasTagCompound() ? false : (!stack.getTagCompound().hasKey("display", 10) ? false : stack.getTagCompound().getCompoundTag("display").hasKey("color", 3)));
+        return this.material != ItemArmor.ArmorMaterial.LEATHER ? false : (!stack.hasTagCompound() ? false : (!stack.getTagCompound().hasKey("render", 10) ? false : stack.getTagCompound().getCompoundTag("render").hasKey("color", 3)));
     }
 
     public int getColor(ItemStack stack)
@@ -118,7 +118,7 @@ public class ItemArmor extends Item
 
             if (nbttagcompound != null)
             {
-                NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+                NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("render");
 
                 if (nbttagcompound1 != null && nbttagcompound1.hasKey("color", 3))
                 {
@@ -138,7 +138,7 @@ public class ItemArmor extends Item
 
             if (nbttagcompound != null)
             {
-                NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+                NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("render");
 
                 if (nbttagcompound1.hasKey("color"))
                 {
@@ -164,11 +164,11 @@ public class ItemArmor extends Item
                 stack.setTagCompound(nbttagcompound);
             }
 
-            NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+            NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("render");
 
-            if (!nbttagcompound.hasKey("display", 10))
+            if (!nbttagcompound.hasKey("render", 10))
             {
-                nbttagcompound.setTag("display", nbttagcompound1);
+                nbttagcompound.setTag("render", nbttagcompound1);
             }
 
             nbttagcompound1.setInteger("color", color);

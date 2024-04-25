@@ -1,12 +1,17 @@
 package net.minecraft.client.gui;
 
+import com.cubk.event.annotations.EventTarget;
 import com.google.common.collect.Lists;
 import java.io.IOException;
 import java.util.List;
 
 import dev.sky.Client;
 import dev.sky.elements.Element;
+import dev.sky.events.impls.misc.EventKey;
+import dev.sky.ui.font.FontManager;
+import dev.sky.ui.screen.button.ClientButton;
 import dev.sky.utils.impls.misc.MouseUtil;
+import dev.sky.utils.impls.render.RenderUtil;
 import net.minecraft.network.play.client.C14PacketTabComplete;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -28,6 +33,7 @@ public class GuiChat extends GuiScreen
     protected GuiTextField inputField;
     private String defaultInputFieldText = "";
     private Element element;
+    private int keyCode;
 
     public GuiChat()
     {
@@ -155,6 +161,7 @@ public class GuiChat extends GuiScreen
 
         for (Element element : Client.INSTANCE.getElementManager().getElements()) {
             if (MouseUtil.isHovering(element.getX(), element.getY(), element.getWidth(), element.getHeight(), mouseX, mouseY)) {
+
                 element.setDragging(true);
                 this.element = element;
 
@@ -291,14 +298,32 @@ public class GuiChat extends GuiScreen
             this.handleComponentHover(ichatcomponent, mouseX, mouseY);
         }
 
-        // 我之前試過了如果不在draw的時候更新mouseXY那麽拖動起來很卡
+        if (this.element != null) element.updateMousePos(mouseX, mouseY);
 
-        if (this.element != null) {
-            element.updateMousePos(mouseX, mouseY);
+        for (Element element : Client.INSTANCE.getElementManager().getElements()) {
+            if(!element.isState()) return;
+            if (MouseUtil.isHovering(element.getX(), element.getY(), element.getWidth(), element.getHeight(), mouseX, mouseY)) {
+
+                RenderUtil.drawBorder(element.getX() - 4, element.getY() - 4,  element.getWidth() + 8, element.getHeight() + 8, 1, -1);
+                FontManager.pingfang15.drawCenteredStringWithShadow(String.format("X轴: %s Y轴: %s", element.getX(), element.getY()), element.getX() + 37, element.getY() - 12, -1);
+            }
+            /*
+            else if(MouseUtil.isHovering(element.getX(), element.getY(), element.getWidth() + 60, element.getHeight() + 60, mouseX, mouseY)) {
+                ClientButton button = new ClientButton(element.getX() + 60, element.getY(), 60, 30, 3, "删除");
+                button.setMouseX(mouseX);
+                button.setMouseY(mouseY);
+                button.draw();
+                if (keyCode == 0 && button.isHover()) element.setState(false);
+            }
+
+             */
         }
-
-
         super.drawScreen(mouseX, mouseY, partialTicks);
+    }
+
+    @EventTarget
+    void onK(EventKey e) {
+        keyCode = e.getKeyCode();
     }
 
     public void onAutocompleteResponse(String[] p_146406_1_)

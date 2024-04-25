@@ -1188,9 +1188,9 @@ public class GL11 {
     // --- [ glCallList ] ---
 
     /**
-     * Executes a display list. Causes the commands saved in the display list to be executed, in order, just as if they were issued without using a display list.
+     * Executes a render list. Causes the commands saved in the render list to be executed, in order, just as if they were issued without using a render list.
      *
-     * @param list the index of the display list to be called
+     * @param list the index of the render list to be called
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glCallList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -1201,16 +1201,16 @@ public class GL11 {
     /**
      * Unsafe version of: {@link #glCallLists CallLists}
      *
-     * @param n    the number of display lists to be called
+     * @param n    the number of render lists to be called
      * @param type the data type of each element in {@code lists}. One of:<br><table><tr><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_2_BYTES 2_BYTES}</td><td>{@link #GL_3_BYTES 3_BYTES}</td><td>{@link #GL_4_BYTES 4_BYTES}</td></tr></table>
      */
     public static native void nglCallLists(int n, int type, long lists);
 
     /**
-     * Provides an efficient means for executing a number of display lists.
+     * Provides an efficient means for executing a number of render lists.
      *
      * @param type  the data type of each element in {@code lists}. One of:<br><table><tr><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_2_BYTES 2_BYTES}</td><td>{@link #GL_3_BYTES 3_BYTES}</td><td>{@link #GL_4_BYTES 4_BYTES}</td></tr></table>
-     * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
+     * @param lists an array of offsets. Each offset is added to the render list base to obtain the render list number.
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -1219,9 +1219,9 @@ public class GL11 {
     }
 
     /**
-     * Provides an efficient means for executing a number of display lists.
+     * Provides an efficient means for executing a number of render lists.
      *
-     * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
+     * @param lists an array of offsets. Each offset is added to the render list base to obtain the render list number.
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -1230,9 +1230,9 @@ public class GL11 {
     }
 
     /**
-     * Provides an efficient means for executing a number of display lists.
+     * Provides an efficient means for executing a number of render lists.
      *
-     * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
+     * @param lists an array of offsets. Each offset is added to the render list base to obtain the render list number.
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -1241,9 +1241,9 @@ public class GL11 {
     }
 
     /**
-     * Provides an efficient means for executing a number of display lists.
+     * Provides an efficient means for executing a number of render lists.
      *
-     * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
+     * @param lists an array of offsets. Each offset is added to the render list base to obtain the render list number.
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -2017,11 +2017,11 @@ public class GL11 {
     // --- [ glDeleteLists ] ---
 
     /**
-     * Deletes a contiguous group of display lists. All information about the display lists is lost, and the indices become unused. Indices to which no display
+     * Deletes a contiguous group of render lists. All information about the render lists is lost, and the indices become unused. Indices to which no render
      * list corresponds are ignored. If {@code range} is zero, nothing happens.
      *
-     * @param list  the index of the first display list to be deleted
-     * @param range the number of display lists to be deleted
+     * @param list  the index of the first render list to be deleted
+     * @param range the number of render lists to be deleted
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glDeleteLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -2666,12 +2666,12 @@ public class GL11 {
     // --- [ glGenLists ] ---
 
     /**
-     * Returns an integer n such that the indices {@code n,..., n + s - 1} are previously unused (i.e. there are {@code s} previously unused display list
-     * indices starting at n). {@code GenLists} also has the effect of creating an empty display list for each of the indices {@code n,..., n + s - 1}, so
-     * that these indices all become used. {@code GenLists} returns zero if there is no group of {@code s} contiguous previously unused display list indices,
+     * Returns an integer n such that the indices {@code n,..., n + s - 1} are previously unused (i.e. there are {@code s} previously unused render list
+     * indices starting at n). {@code GenLists} also has the effect of creating an empty render list for each of the indices {@code n,..., n + s - 1}, so
+     * that these indices all become used. {@code GenLists} returns zero if there is no group of {@code s} contiguous previously unused render list indices,
      * or if {@code s = 0}.
      *
-     * @param s the number of display lists to create
+     * @param s the number of render lists to create
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glGenLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -4168,7 +4168,7 @@ public class GL11 {
     // --- [ glIsList ] ---
 
     /**
-     * Returns true if the {@code list} is the index of some display list.
+     * Returns true if the {@code list} is the index of some render list.
      *
      * @param list the list index to query
      * 
@@ -4353,9 +4353,9 @@ public class GL11 {
     // --- [ glListBase ] ---
 
     /**
-     * Sets the display list base.
+     * Sets the render list base.
      *
-     * @param base the display list base offset
+     * @param base the render list base offset
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glListBase">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -4764,10 +4764,10 @@ public class GL11 {
     // --- [ glNewList ] ---
 
     /**
-     * Begins the definition of a display list.
+     * Begins the definition of a render list.
      *
-     * @param n    a positive integer to which the display list that follows is assigned
-     * @param mode a symbolic constant that controls the behavior of the GL during display list creation. One of:<br><table><tr><td>{@link #GL_COMPILE COMPILE}</td><td>{@link #GL_COMPILE_AND_EXECUTE COMPILE_AND_EXECUTE}</td></tr></table>
+     * @param n    a positive integer to which the render list that follows is assigned
+     * @param mode a symbolic constant that controls the behavior of the GL during render list creation. One of:<br><table><tr><td>{@link #GL_COMPILE COMPILE}</td><td>{@link #GL_COMPILE_AND_EXECUTE COMPILE_AND_EXECUTE}</td></tr></table>
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glNewList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
      */
@@ -4776,7 +4776,7 @@ public class GL11 {
     // --- [ glEndList ] ---
 
     /**
-     * Ends the definition of GL commands to be placed in a display list. It is only when {@code EndList} occurs that the specified display list is actually
+     * Ends the definition of GL commands to be placed in a render list. It is only when {@code EndList} occurs that the specified render list is actually
      * associated with the index indicated with {@link #glNewList NewList}.
      * 
      * @see <a target="_blank" href="http://docs.gl/gl3/glEndList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -8222,7 +8222,7 @@ public class GL11 {
      * The viewport bounds range {@code [min, max]} tuple may be determined by calling {@link #glGetFloatv GetFloatv} with the symbolic
      * constant {@link GL41#GL_VIEWPORT_BOUNDS_RANGE VIEWPORT_BOUNDS_RANGE}. Viewport width and height are clamped to implementation-dependent maximums when specified. The maximum
      * width and height may be found by calling {@link #glGetFloatv GetFloatv} with the symbolic constant {@link GL11C#GL_MAX_VIEWPORT_DIMS MAX_VIEWPORT_DIMS}. The
-     * maximum viewport dimensions must be greater than or equal to the larger of the visible dimensions of the display being rendered to (if a display
+     * maximum viewport dimensions must be greater than or equal to the larger of the visible dimensions of the render being rendered to (if a render
      * exists), and the largest renderbuffer image which can be successfully created and attached to a framebuffer object.</p>
      * 
      * <p>In the initial state, {@code w} and {@code h} for each viewport are set to the width and height, respectively, of the window into which the GL is to do

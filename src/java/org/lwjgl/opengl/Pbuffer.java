@@ -135,7 +135,7 @@ public final class Pbuffer extends DrawableGL {
     /**
      * Create an instance of a Pbuffer with a unique OpenGL context. The buffer is single-buffered.
      * <p/>
-     * NOTE: The Pbuffer will have its own context that shares display lists and textures with
+     * NOTE: The Pbuffer will have its own context that shares render lists and textures with
      * <code>shared_context</code>, or, if <code>shared_context</code> is <code>null</code>, the Display context if it
      * is created. The Pbuffer will have its own OpenGL state. Therefore, state changes to a pbuffer will not be seen in
      * the window context and vice versa.
@@ -144,7 +144,7 @@ public final class Pbuffer extends DrawableGL {
      * @param width           Pbuffer width
      * @param height          Pbuffer height
      * @param pixel_format    Minimum Pbuffer context properties
-     * @param shared_drawable If non-null the Pbuffer will share display lists and textures with it. Otherwise, the
+     * @param shared_drawable If non-null the Pbuffer will share render lists and textures with it. Otherwise, the
      *                        Pbuffer will share with the Display context (if created).
      */
     public Pbuffer(int width, int height, PixelFormat pixel_format, Drawable shared_drawable) throws LWJGLException {
@@ -154,7 +154,7 @@ public final class Pbuffer extends DrawableGL {
     /**
      * Create an instance of a Pbuffer with a unique OpenGL context. The buffer is single-buffered.
      * <p/>
-     * NOTE: The Pbuffer will have its own context that shares display lists and textures with
+     * NOTE: The Pbuffer will have its own context that shares render lists and textures with
      * <code>shared_context</code>, or, if <code>shared_context</code> is <code>null</code>, the Display context if it
      * is created. The Pbuffer will have its own OpenGL state. Therefore, state changes to a pbuffer will not be seen in
      * the window context and vice versa.
@@ -169,7 +169,7 @@ public final class Pbuffer extends DrawableGL {
      * @param height          Pbuffer height
      * @param pixel_format    Minimum Pbuffer context properties
      * @param renderTexture
-     * @param shared_drawable If non-null the Pbuffer will share display lists and textures with it. Otherwise, the
+     * @param shared_drawable If non-null the Pbuffer will share render lists and textures with it. Otherwise, the
      *                        Pbuffer will share with the Display context (if created).
      */
     public Pbuffer(int width, int height, PixelFormat pixel_format, RenderTexture renderTexture,
@@ -180,7 +180,7 @@ public final class Pbuffer extends DrawableGL {
     /**
      * Create an instance of a Pbuffer with a unique OpenGL context. The buffer is single-buffered.
      * <p/>
-     * NOTE: The Pbuffer will have its own context that shares display lists and textures with
+     * NOTE: The Pbuffer will have its own context that shares render lists and textures with
      * <code>shared_context</code>, or, if <code>shared_context</code> is <code>null</code>, the Display context if it
      * is created. The Pbuffer will have its own OpenGL state. Therefore, state changes to a pbuffer will not be seen in
      * the window context and vice versa.
@@ -195,7 +195,7 @@ public final class Pbuffer extends DrawableGL {
      * @param height          Pbuffer height
      * @param pixel_format    Minimum Pbuffer context properties
      * @param renderTexture
-     * @param shared_drawable If non-null the Pbuffer will share display lists and textures with it. Otherwise, the
+     * @param shared_drawable If non-null the Pbuffer will share render lists and textures with it. Otherwise, the
      *                        Pbuffer will share with the Display context (if created).
      * @param attribs         The ContextAttribs to use when creating the context. (optional, may be null)
      */

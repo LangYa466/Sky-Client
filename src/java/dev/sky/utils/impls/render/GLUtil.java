@@ -9,7 +9,8 @@ package dev.sky.utils.impls.render;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.opengl.GL11;
 
-public class GLUtil {
+public enum GLUtil {
+    ;
     public static int[] enabledCaps = new int[32];
 
     public static void enableDepth() {
@@ -24,14 +25,14 @@ public class GLUtil {
 
     public static void enableCaps(int ... caps) {
         for (int cap : caps) {
-            GL11.glEnable((int)cap);
+            GL11.glEnable(cap);
         }
         enabledCaps = caps;
     }
 
     public static void disableCaps() {
         for (int cap : enabledCaps) {
-            GL11.glDisable((int)cap);
+            GL11.glDisable(cap);
         }
     }
 
@@ -46,18 +47,18 @@ public class GLUtil {
 
     public static void setup2DRendering(boolean blend) {
         if (blend) {
-            GLUtil.startBlend();
+            startBlend();
         }
         GlStateManager.disableTexture2D();
     }
 
     public static void setup2DRendering() {
-        GLUtil.setup2DRendering(true);
+        setup2DRendering(true);
     }
 
     public static void end2DRendering() {
         GlStateManager.enableTexture2D();
-        GLUtil.endBlend();
+        endBlend();
     }
 
     public static void startRotate(float x, float y, float rotate) {

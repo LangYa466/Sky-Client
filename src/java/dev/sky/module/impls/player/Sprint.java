@@ -14,8 +14,9 @@ import net.minecraft.client.Minecraft;
 
 public class Sprint extends Module {
     public Sprint( ) {
-        super("Sprint", Category.Player);
-        addSettings();
+        super("自动疾跑", Category.Player);
+        addValues();
+        setState(true);
     }
 
     @EventTarget

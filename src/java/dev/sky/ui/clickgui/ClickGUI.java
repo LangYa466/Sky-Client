@@ -36,7 +36,7 @@ public class ClickGUI extends GuiScreen {
             ImGui.setTooltip(module.getDescription());
         }
         ImGui.pushID(module.getName());
-        if (ImGui.checkbox("Enabled", module.isState())) {
+        if (ImGui.checkbox("开启", module.isState())) {
             module.toggle();
         }
         for (AbstractValue setting : module.getValues()) {
@@ -93,16 +93,16 @@ public class ClickGUI extends GuiScreen {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         Runnable runnable = () -> {
-            if (ImGui.begin("langya.ink", ImGuiWindowFlags.MenuBar | ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize)) {
+            if (ImGui.begin("langya.ink", ImGuiWindowFlags.MenuBar)) {
                 ImGui.styleColorsLight();
-                if (ImGui.beginTabBar("Modules")) {
+                if (ImGui.beginTabBar("模块")) {
                     for (Category type : Category.values()) {
                         if (ImGui.beginTabItem(type.name())) {
                             renderCategoryModules(type);
                             ImGui.endTabItem();
                         }
                     }
-                    if (ImGui.beginTabItem("Config")) {
+                    if (ImGui.beginTabItem("配置")) {
                         ImGui.endTabItem();
                     }
                     ImGui.endTabBar();

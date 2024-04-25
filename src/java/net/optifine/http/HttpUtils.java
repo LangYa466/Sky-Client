@@ -97,7 +97,7 @@ public enum HttpUtils
                 }
             }
 
-            httpurlconnection.setRequestProperty("Content-Type", "text/plain");
+            httpurlconnection.setRequestProperty("Content-NotifType", "text/plain");
             httpurlconnection.setRequestProperty("Content-Length", "" + content.length);
             httpurlconnection.setRequestProperty("Content-Language", "en-US");
             httpurlconnection.setUseCaches(false);
